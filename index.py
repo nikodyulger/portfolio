@@ -1,8 +1,17 @@
 import streamlit as st
+from PIL import Image
 
 
 st.title("Portfolio")
 
+_, col2, _ = st.columns([2,3,1])
+
+image = Image.open("static/profile.png")
+new_size = (int(image.width/10), int(image.height/10))
+resized_image = image.resize(new_size)
+with col2:
+    st.image(resized_image)
+    st.markdown("#### Ingeniero Informático")
 
 st.header("Sobre mí", divider="green")
 

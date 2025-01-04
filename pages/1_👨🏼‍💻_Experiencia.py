@@ -6,7 +6,7 @@ PAGE_ICON = "👨🏼‍💻"
 
 EXPERIENCE = {
     "Openbank": {
-        "company": ":violet[Openbank] | Banco Digital",
+        "company": ":rainbow[Openbank] | Banco Digital",
         "dates": "###### Septiembre 2022 - Agosto 2024",
         "position": "###### Arquitecto AWS",
         "location": "###### Madrid",
@@ -17,8 +17,8 @@ EXPERIENCE = {
             - Creación de métricas para monitorizar el sistema y resolución de incidencias
         """
     },
-    "Integra": {
-        "company": ":orange[Integra] | Consultoría RRHH",
+    "HRPath": {
+        "company": ":blue[Integra] | Consultoría RRHH",
         "dates": "###### Enero 2021 - Octubre 2021",
         "position": "###### Consultor Técnico Junior",
         "location": "###### Albacete",
@@ -44,7 +44,7 @@ EXPERIENCE = {
 
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
 
-st.title(PAGE_TITLE)
+st.title(f"{PAGE_ICON} {PAGE_TITLE}")
 st.divider()
 
 for exp in EXPERIENCE.keys():

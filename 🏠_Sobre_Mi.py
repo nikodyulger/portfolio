@@ -51,7 +51,7 @@ with col2:
     html += """</div>"""
     st.markdown(html, unsafe_allow_html=True)
 
-st.header("Sobre mí", divider="green")
+st.header("Sobre mí", divider="blue")
 
 st.text("Ingeniero informático especializado en Ingeniería y Ciencia de Datos en la Nube")
 st.text("Me interesa saber como funcionan las cosas")

@@ -1,7 +1,7 @@
 import streamlit as st
 from PIL import Image
 
-from settings import DESCRIPTION, EMAIL, NAME, PAGE_TITLE, PAGE_ICON, PROFILE_PIC_PATH, PDF_PATH
+from settings import DESCRIPTION, NAME, PAGE_TITLE, PAGE_ICON, PROFILE_PIC_PATH, PDF_PATH, SOCIAL_MEDIA_LINKS, SOCIAL_MEDIA_ICONS
 
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
 
@@ -26,7 +26,11 @@ with col2:
         file_name="cv-nikola.pdf",
         type="primary"
     )
-    st.write("📫", EMAIL)
+    html = f"""<div style="display: flex; align-items: center; justify-content: left; gap: 15px;">"""
+    for snet in SOCIAL_MEDIA_LINKS.keys():
+        html += f"""<a href="{SOCIAL_MEDIA_LINKS[snet]}" target="_blank">{SOCIAL_MEDIA_ICONS[snet]}</a>"""
+    html += """</div>"""
+    st.markdown(html, unsafe_allow_html=True)
 
 st.header("Sobre mí", divider="green")
 

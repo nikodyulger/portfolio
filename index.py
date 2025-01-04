@@ -1,17 +1,32 @@
 import streamlit as st
 from PIL import Image
 
+from settings import DESCRIPTION, EMAIL, NAME, PAGE_TITLE, PAGE_ICON, PROFILE_PIC_PATH, PDF_PATH
 
-st.title("Portfolio")
+st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
 
-_, col2, _ = st.columns([2,3,1])
+# Load cv pdf and profile pic
+with open(PDF_PATH, "rb") as pdf_file:
+    pdf_bytes = pdf_file.read()
+profile_pic = Image.open(PROFILE_PIC_PATH)
 
-image = Image.open("static/profile.png")
-new_size = (int(image.width/10), int(image.height/10))
-resized_image = image.resize(new_size)
+# HERO SECTION
+col1, col2 = st.columns(2, gap="small")
+with col1:
+    st.image(PROFILE_PIC_PATH)
+
 with col2:
-    st.image(resized_image)
-    st.markdown("#### Ingeniero Informático")
+    st.title(NAME)
+    st.write(DESCRIPTION)
+    st.download_button(
+        label="Descargar CV",
+        data=pdf_bytes,
+        icon="💾",
+        mime="application/octet-stream",
+        file_name="cv-nikola.pdf",
+        type="primary"
+    )
+    st.write("📫", EMAIL)
 
 st.header("Sobre mí", divider="green")
 

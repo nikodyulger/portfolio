@@ -11,10 +11,10 @@ EXPERIENCE = {
         "position": "###### Arquitecto AWS",
         "location": "###### Madrid",
         "description": """
-            - Mantenimiento y mejora de un sistema serverless para la transmisión de ficheros con S3, EFS y SFTP
-            - Coordinar y dar soporte a diferentes equipos para cumplir sus integraciones de ficheros con terceros
-            - Planear y desplegar infraestructura como código
-            - Creación de métricas para monitorizar el sistema y resolución de incidencias
+            - Gestión y optimización de una arquitectura **serverless** para la transferencia de archivos entre aplicativos, utilizando S3, EFS y SFTP.
+            - Actuar como enlace entre equipos para garantizar la correcta transferencia de archivos
+            - Diseño e implementación de infraestructura en la nube para la orquestación entre componentes de diferentes sistemas
+            - Identificación y resolución proactiva de problemas técnicos
         """
     },
     "HRPath": {
@@ -23,8 +23,9 @@ EXPERIENCE = {
         "position": "###### Consultor Técnico Junior",
         "location": "###### Albacete",
         "description": """
-            - Desarrollo de funcionalidades personalizadas en SAP
-            - Creación de servicios de datos y aplicaciones web
+            - Implementación de funcionalidades a medida en SAP HCM: nóminas, IRPF, correos, etc.
+            - Diseño de APIs REST/OData para la integración con otros sistemas
+            - Creación de aplicaciones web para gestión interna de los datos
             - Soporte y mantenimiento de incidencias
         """
     },
@@ -34,9 +35,9 @@ EXPERIENCE = {
         "position": "###### Becario de Investigación",
         "location": "###### Albacete",
         "description": """
-            - Desarrollo y despliegue en AWS de una aplicación web para comparar precios de productos de supermercado
-            - Automatización de data pipelines para web scraping
-            - Entrenamiento de redes neuronales profundas para la clasificación de imágenes de monumentos
+            - Diseño, desarrollo y despliegue de aplicaciones web con AWS
+            - Construcción de pipelines automatizados para extraer, transformar y cargar datos de sitios web
+            - Entrenamiento de redes neuronales profundas para la clasificación de imágenes de puntos turísticos
             - Exploración, limpieza y visualización de grandes volúmenes de datos
         """
     }

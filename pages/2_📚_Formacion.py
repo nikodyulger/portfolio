@@ -44,17 +44,17 @@ df_cidaen = pd.read_csv('data/cidaen.csv')
 aws_architect_image = Image.open(AWS_ARCHITECT_PIC_PATH)
 psm_scrum_image = Image.open(PSM_SCRUM_PIC_PATH)
 
-st.subheader("Notas medias")
+st.subheader("Notas medias", help="Trayectoria académica en la UCLM")
 col1, col2, col3 = st.columns(3)
 col1.metric("Grado Informática", round(df_grado['NOTA'].mean(),2), border=True)
 col2.metric("Máster Informática", round(df_master['NOTA'].mean(),2), border=True)
 col3.metric("Máster CIDAEN", round(df_cidaen['NOTA'].mean(),2), border=True)
 
 st.subheader("Idiomas")
-for l, col in zip(LANGUAGES, st.columns(3)):
+for l, col in zip(LANGUAGES.keys(), st.columns(3)):
     col.metric(l, LANGUAGES[l], border=True)
 
 st.subheader("Certificaciones")
-col1, col2, _= st.columns(3)
+col1, col2, _ = st.columns(3)
 col1.image(aws_architect_image)
 col2.image(psm_scrum_image)

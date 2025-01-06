@@ -6,7 +6,7 @@ PAGE_TITLE = "Portfolio | Nikola Dyulgerov"
 PAGE_ICON = ":clipboard:"
 NAME = "Nikola Dyulgerov"
 DESCRIPTION = """
-Ingeniero informático con interes en aplicaciones serverless, lago de datos y modelos de aprendizaje automático
+Ingeniero informático con interés en diseño aplicaciones serverless, gestionar lagos de datos y construir modelos de aprendizaje automático
 """
 SOCIAL_MEDIA_LINKS = {
     "LinkedIn": "https://www.linkedin.com/in/nikola-dyulgerov/",
@@ -52,8 +52,9 @@ with col1:
     st.image(PROFILE_PIC_PATH)
 
 with col2:
-    st.title(NAME)
+    st.markdown(f"## {NAME}")
     st.write(DESCRIPTION)
+    st.write("")
     st.download_button(
         label="Descargar CV",
         data=pdf_bytes,
@@ -62,6 +63,7 @@ with col2:
         file_name="cv-nikola.pdf",
         type="primary"
     )
+    st.write("")
     html = f"""<div style="display: flex; align-items: center; justify-content: left; gap: 15px;">"""
     for snet in SOCIAL_MEDIA_LINKS.keys():
         html += f"""<a href="{SOCIAL_MEDIA_LINKS[snet]}" target="_blank">{SOCIAL_MEDIA_ICONS[snet]}</a>"""
@@ -70,10 +72,10 @@ with col2:
 
 st.header("Sobre mí", divider="blue")
 
-st.text("Ingeniero informático especializado en Ingeniería y Ciencia de Datos en la Nube")
-st.text("Me interesa saber como funcionan las cosas")
-st.text("Aprendo rápido")
-st.text("Tengo otros hobbies como leer, dibujar y correr")
+st.markdown(":cloud: Especializado en arquitectura de datos en la nube")
+st.markdown(":bulb: Me gusta entender las cosas para poder encontran una mejor solución")
+st.markdown(":arrows_counterclockwise: Me adapto fácilmente a nuevos entornos y tecnologías")
+st.markdown(":running: Fuera del ámbito profesional, tengo otros hobbies como: leer, dibujar y correr")
 
 st.header("Tecnologías")
 

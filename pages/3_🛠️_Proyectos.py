@@ -9,7 +9,8 @@ PROJECTS = {
         "description": """
             Breve recopilatorio de recetas desplegado en AWS como página web estática que se actualiza con cada push de código
         """,
-        "tags": ["GitHub Actions", "Hugo", "Terraform", "Cloudfront", "S3", "Lambda@Edge", "Route 53"]
+        "tags": ["GitHub Actions", "Hugo", "Terraform", "Cloudfront", "S3", "Lambda@Edge", "Route 53"],
+        "img": "static/blog-recetas.png"
     },
     "Frigorífico AWS": {
         "link": "https://github.com/nikodyulger/aws-fridge-app",
@@ -18,20 +19,23 @@ PROJECTS = {
             apagando y levantando los contenedores, todo ello utilizando herramientas de infraestructura como código
         """,
         "tags": ["Cloudformation", "Lambda", "CodePipeline", "AppRunner", "SNS", "DynamoDB", "Route53", "Flask", "Pytest", "Docker"],
+        "img": "static/aws-fridge-app.gif"
     },
     "Datathon Logic": {
         "link": "https://github.com/nikodyulger/datathon-logic",
         "description": """
             Proyecto de visualización de datos, nuestra propuesta para el reto del Datathon Cajamar UniversityHack 2022
         """,
-        "tags": ["Plotly", "Pandas", "Dash", "Spacy"]
+        "tags": ["Plotly", "Pandas", "Dash", "Spacy"],
+        "img": "static/datathon.gif"
     },
     "Interprice": {
         "link": "https://github.com/nikodyulger/interprice",
         "description": """
             Comparador de precios de productos alimenticios de diferentes supermercados de España
         """,
-        "tags": ["Scrapy", "VueJs", "Lambda", "Aurora MySQL", "API Gateway", "S3"]
+        "tags": ["Scrapy", "VueJs", "Lambda", "Aurora MySQL", "API Gateway", "S3"],
+        "img": "static/interprice.gif"
     },
 }
 
@@ -50,4 +54,7 @@ for pr in PROJECTS.keys():
 
     st.pills("Tecnologías", PROJECTS[pr]["tags"])
     st.write(PROJECTS[pr]["description"])
+    col1, _ = st.columns([5, 1])
+    with col1:
+        st.image(PROJECTS[pr]["img"])
     st.divider()

@@ -1,17 +1,16 @@
-import os
 import streamlit as st
 from huggingface_hub import InferenceClient
 
 # Page settings and constants
 PAGE_TITLE = "ChatBot"
-PAGE_ICON = "🤖"
-HUGGINGFACE_API_KEY = os.getenv('HUGGINGFACE_API_KEY')
-EXAMPLE_PROMPTS = ["¿Quién es Nikola?",
-                   "¿Qué experiencia tiene Nikola?",
-                   "¿Cuáles son los proyectos de Nikola?",
-                   "¿Cuál es la trayectoria profesional de Nikola?",
-                   "¿Cómo contactar con Nikola?",
-                   "¿En qué tipo de roles está interesado Nikola?"
+PAGE_ICON = "💬"
+HUGGINGFACE_API_KEY = st.secrets['HUGGINGFACE_API_KEY']
+EXAMPLE_PROMPTS = ["¿Quién es?",
+                   "¿Qué experiencia tiene?",
+                   "¿Tiene proyectos personales?",
+                   "¿Qué tecnologías conoce?",
+                   "¿Cómo contactar?",
+                   "¿En qué tipo de roles está interesado?"
 ]
 CONTEXT = """
 Aquí está la información sobre Nikola:

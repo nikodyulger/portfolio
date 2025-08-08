@@ -5,6 +5,20 @@ PAGE_TITLE = "Experiencia"
 PAGE_ICON = "👨🏼‍💻"
 
 EXPERIENCE = {
+    "DIVE.Tech": {
+        "company": ":red[DIVE.Tech] | IA y Big Data",
+        "dates": "###### Abril 2025 - Actualidad",
+        "position": "###### Data Engineer",
+        "location": "###### Madrid (Remoto)",
+        "description": """
+            - Diseño de modelo de datos en estrella y arquitectura de Data Lake para optimizar el rendimiento analítico
+            - Creación y optimización de consultas SQL para explotación de datos
+            - Desarrollo de pipelines de procesamiento de datos en batch y tiempo real
+            - Implementación de un sistema de Change Data Capture (CDC) desde PostgreSQL a ClickHouse utilizando Kafka, Debezium y Pandas
+            -  Desarrollo de APIs REST: diseño de lógica, definición de endpoints y documentación
+            - Soporte técnico y colaboración con compañeros para la resolución de incidencias y optimización de procesos
+        """,
+    },
     "Openbank": {
         "company": ":rainbow[Openbank] | Banco Digital",
         "dates": "###### Septiembre 2022 - Agosto 2024",
@@ -15,7 +29,7 @@ EXPERIENCE = {
             - Actuar como enlace entre equipos para garantizar la correcta transferencia de archivos
             - Diseño e implementación de infraestructura en la nube para la orquestación entre componentes de diferentes sistemas
             - Identificación y resolución proactiva de problemas técnicos
-        """
+        """,
     },
     "HRPath": {
         "company": ":blue[Integra] | Consultoría RRHH",
@@ -27,7 +41,7 @@ EXPERIENCE = {
             - Diseño de APIs REST/OData para la integración con otros sistemas
             - Creación de aplicaciones web para gestión interna de los datos
             - Soporte y mantenimiento de incidencias
-        """
+        """,
     },
     "UCLM": {
         "company": ":red[UCLM] | Universidad",
@@ -39,8 +53,8 @@ EXPERIENCE = {
             - Construcción de pipelines automatizados para extraer, transformar y cargar datos de sitios web
             - Entrenamiento de redes neuronales profundas para la clasificación de imágenes de puntos turísticos
             - Exploración, limpieza y visualización de grandes volúmenes de datos
-        """
-    }
+        """,
+    },
 }
 
 st.set_page_config(page_title=PAGE_TITLE, page_icon=PAGE_ICON)
@@ -49,7 +63,7 @@ st.title(f"{PAGE_ICON} {PAGE_TITLE}")
 st.divider()
 
 for exp in EXPERIENCE.keys():
-    col1, _, col3 = st.columns([3,1,1])
+    col1, _, col3 = st.columns([3, 1, 1])
     with col1:
         st.subheader(EXPERIENCE[exp]["company"])
     with col3:

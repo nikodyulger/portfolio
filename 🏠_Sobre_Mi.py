@@ -11,7 +11,7 @@ Ingeniero informático con interés en diseño aplicaciones serverless, gestiona
 SOCIAL_MEDIA_LINKS = {
     "LinkedIn": "https://www.linkedin.com/in/nikola-dyulgerov/",
     "GitHub": "https://github.com/nikodyulger",
-    "Kaggle": "https://www.kaggle.com/nikoladyulgerov"
+    "Kaggle": "https://www.kaggle.com/nikoladyulgerov",
 }
 
 SOCIAL_MEDIA_ICONS = {
@@ -23,19 +23,31 @@ SKILLS = {
     "Python": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg",
     "Javascript": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg",
     "Git": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
+    "Jira": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg",
     "Pandas": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg",
-    "ApacheSpark": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachespark/apachespark-original.svg",
     "ScikitLearn": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg",
+    "Matplotlib": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/matplotlib/matplotlib-original.svg",
+    "Plotly": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/plotly/plotly-original.svg",
     "Jupyter": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jupyter/jupyter-original-wordmark.svg",
     "Tensorflow": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
-    "ApacheAirflow": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apacheairflow/apacheairflow-original.svg",
+    "Apache Spark": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachespark/apachespark-original.svg",
+    "Apache Airflow": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apacheairflow/apacheairflow-original.svg",
+    "Apache Flink": "https://cdn.jsdelivr.net/gh/callback-io/allogo@main/public/logos/apache-flink/icon.svg",
+    "Apache Kafka": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachekafka/apachekafka-original.svg",
+    "FastAPI": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg",
+    "POSTMan": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/postman/postman-original.svg",
+    "Swagger": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/swagger/swagger-original.svg",
     "VueJs": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg",
+    "Playwright": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/playwright/playwright-original.svg",
+    "Figma": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg",
     "Postgres": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
+    "Redis": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg",
     "MongoDB": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
     "AWS": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
     "Docker": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
     "CI/CD": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/githubactions/githubactions-original.svg",
     "Terraform": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg",
+    "Pulumi": "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pulumi/pulumi-original.svg",
 }
 PDF_PATH = "static/cv.pdf"
 PROFILE_PIC_PATH = "static/profile.png"
@@ -61,7 +73,7 @@ with col2:
         icon="💾",
         mime="application/octet-stream",
         file_name="cv-nikola.pdf",
-        type="primary"
+        type="primary",
     )
     st.write("")
     html = f"""<div style="display: flex; align-items: center; justify-content: left; gap: 15px;">"""
@@ -72,10 +84,19 @@ with col2:
 
 st.header("Sobre mí", divider="blue")
 
-st.markdown(":cloud: Especializado en arquitectura de datos en la nube")
-st.markdown(":bulb: Me gusta entender las cosas para poder encontran una mejor solución")
-st.markdown(":arrows_counterclockwise: Me adapto fácilmente a nuevos entornos y tecnologías")
-st.markdown(":running: Fuera del ámbito profesional, tengo otros hobbies como: leer, dibujar y correr")
+st.markdown(":cloud: Trabajo en arquitectura de datos y plataformas cloud")
+st.markdown(
+    ":bulb: Priorizo entender el problema antes de diseñar la solución y elegir cualquier tecnología"
+)
+st.markdown(
+    ":arrows_counterclockwise: Aprender y adaptarme a nuevos entornos forma parte natural de mi día a día"
+)
+st.markdown(
+    ":jigsaw: Siempre estoy explorando nuevas ideas y tecnologías para mejorar la manera en la que trabajo"
+)
+st.markdown(
+    ":running: Fuera del trabajo, la lectura, el dibujo y el running forman parte de mi equilibrio diario"
+)
 
 st.header("Tecnologías")
 
@@ -83,10 +104,16 @@ skill_markdown_content = ""
 icons_per_row = 4
 current_row = []
 for idx, (skill, icon_url) in enumerate(SKILLS.items(), start=1):
-    current_row.append(f'<div style="text-align: center; margin: 10px;">'
-                       f'<img src="{icon_url}" width="50"><br>{skill}</div>')
+    current_row.append(
+        f'<div style="text-align: center; margin: 10px;">'
+        f'<img src="{icon_url}" width="50"><br>{skill}</div>'
+    )
     if idx % icons_per_row == 0 or idx == len(SKILLS):
-        skill_markdown_content += f'<div style="display: flex; justify-content: space-between;">' + "".join(current_row) + "</div><br>"
+        skill_markdown_content += (
+            f'<div style="display: flex; justify-content: space-between;">'
+            + "".join(current_row)
+            + "</div><br>"
+        )
         current_row = []
 
 st.markdown(skill_markdown_content, unsafe_allow_html=True)

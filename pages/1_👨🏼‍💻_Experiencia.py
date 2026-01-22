@@ -5,18 +5,28 @@ PAGE_TITLE = "Experiencia"
 PAGE_ICON = "👨🏼‍💻"
 
 EXPERIENCE = {
-    "DIVE.Tech": {
-        "company": ":red[DIVE.Tech] | IA y Big Data",
-        "dates": "###### Abril 2025 - Actualidad",
+    "Accenture": {
+        "company": ":violet[Accenture] | IA & Big Data",
+        "dates": "###### Septiembre 2026 - Actualidad",
         "position": "###### Data Engineer",
         "location": "###### Madrid (Remoto)",
         "description": """
-            - Diseño de modelo de datos en estrella y arquitectura de Data Lake para optimizar el rendimiento analítico
-            - Creación y optimización de consultas SQL para explotación de datos
-            - Desarrollo de pipelines de procesamiento de datos en batch y tiempo real
-            - Implementación de un sistema de Change Data Capture (CDC) desde PostgreSQL a ClickHouse utilizando Kafka, Debezium y Pandas
-            -  Desarrollo de APIs REST: diseño de lógica, definición de endpoints y documentación
-            - Soporte técnico y colaboración con compañeros para la resolución de incidencias y optimización de procesos
+            - Diseño e implementación de una arquitectura de datos en tiempo real orientada a la creación de un Golden Record, sincronizando bases de datos on-premise con bases de datos no relacionales mediante CDC.
+            - Orquestación de procesos de carga inicial y conciliación de datos entre sistemas, asegurando la integridad y trazabilidad de la información
+            - Desarrollo de herramientas de automatización operativa para la generación de configuraciones facilitando su mantenimiento y evolución.
+        """,
+    },
+    "DIVE.Tech": {
+        "company": ":red[DIVE.Tech] | Soluciones IA",
+        "dates": "###### Abril 2025 - Septiembre 2025",
+        "position": "###### Data Engineer",
+        "location": "###### Madrid (Remoto)",
+        "description": """
+            - Diseño de arquitecturas de datos batch y streaming, y de modelos de datos analíticos enfocados en la optimización de costes, el rendimiento analítico y la operación del dato.
+            - Implementación de un sistema de Change Data Capture (CDC) desde PostgreSQL hacia ClickHouse, utilizando Kafka, Debezium y Pandas, garantizando consistencia y baja latencia en la sincronización de datos.
+            - Optimización de consultas SQL para la explotación analítica, mejorando tiempos de respuesta y eficiencia en el acceso a la información
+            - Desarrollo de APIs REST, abarcando diseño de la lógica, definición de endpoints y documentación para facilitar la integración con otros sistemas
+            - Colaboración técnica con el equipo en la resolución de incidencias y en la mejora continua de procesos y arquitectura
         """,
     },
     "Openbank": {
@@ -25,10 +35,10 @@ EXPERIENCE = {
         "position": "###### Arquitecto AWS",
         "location": "###### Madrid",
         "description": """
-            - Gestión y optimización de una arquitectura **serverless** para la transferencia de archivos entre aplicativos, utilizando S3, EFS y SFTP.
-            - Actuar como enlace entre equipos para garantizar la correcta transferencia de archivos
-            - Diseño e implementación de infraestructura en la nube para la orquestación entre componentes de diferentes sistemas
-            - Identificación y resolución proactiva de problemas técnicos
+            - Diseño y evolución de arquitecturas serverless y orientadas a eventos en la nube, destinadas a la transferencia e integración de información entre múltiples sistemas
+            - Despliegue y gestión de infraestructura como código, garantizando entornos reproducibles, escalables y mantenibles
+            - Implementación de mecanismos de monitorización y observabilidad, junto con la detección y resolución proactiva de incidencias, asegurando la estabilidad de los sistemas
+            - Coordinación técnica entre equipos internos y terceros para la integración de sistemas, con foco en escalabilidad, resiliencia y fiabilidad operativa
         """,
     },
     "HRPath": {

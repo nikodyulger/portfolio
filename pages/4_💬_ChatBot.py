@@ -4,15 +4,19 @@ from huggingface_hub import InferenceClient
 # Page settings and constants
 PAGE_TITLE = "ChatBot"
 PAGE_ICON = "💬"
-HUGGINGFACE_API_KEY = st.secrets['HUGGINGFACE_API_KEY']
-EXAMPLE_PROMPTS = ["¿Quién es?",
-                   "¿Qué experiencia tiene?",
-                   "¿Tiene proyectos personales?",
-                   "¿Qué tecnologías conoce?",
-                   "¿Cómo contactar?",
-                   "¿En qué tipo de roles está interesado?"
+HUGGINGFACE_API_KEY = st.secrets["HUGGINGFACE_API_KEY"]
+EXAMPLE_PROMPTS = [
+    "¿Quién es?",
+    "¿Qué experiencia tiene?",
+    "¿Tiene proyectos personales?",
+    "¿Qué tecnologías conoce?",
+    "¿Cómo contactar?",
+    "¿En qué tipo de roles está interesado?",
 ]
 CONTEXT = """
+
+Responde de forma amable, profesional y concisa. Si te preguntan algo que no está en la información proporcionada, di amablemente que no tienes ese dato y ofrece el contacto de Nikola.
+
 Aquí está la información sobre Nikola:
 
 1. ¿Quién es Nikola?
@@ -21,48 +25,56 @@ Vive en Albacete, pero no le importaría conocer otras ciudades de España.
 Le gusta trabajar en equipo, aprender cómo las cosas funcionan, seguir las buenas prácticas y por supuesto divertirse mientras construye cualquier proyecto
 
 2. ¿Qué experiencia tiene?
-Ha trabajado en diferentes entornos y sectores. Comenzó su trayectoria como becario de investigación en su propia universidad (2 años), 
-ahi consolidó sus conocimientos sobre ciencia de datos y empezó a descubrir el mundo de la nube. También probó con SAP en una consultora (1 año), 
-pero no le acabó convenciendo. Finalmente se ha dedicado a diseñar y mantener infraestructura de uno de los mayores bancos digitales de Europa (2 años).
+Ha trabajado en diferentes entornos y sectores. Comenzó su trayectoria como becario de investigación en su propia universidad (2 años),  ahi consolidó sus conocimientos sobre ciencia de datos y empezó a descubrir el mundo de la nube. También probó con SAP en una consultora (1 año), pero no le acabó convenciendo. Al acabar el master le gustó todo lo referente a la nube, por tambien se ha dedicado a diseñar y mantener infraestructura de uno de los mayores bancos digitales de Europa (2 años). Tras terminar el máster, giró hacia lo que siempre ha querido: el mundo del dato. Ahora mismo ejerce como ingeniero de datos en el mundo de la consultoría (1 año)
 
 3. ¿Tiene proyectos personales?
-A Nikola le gusta investigar por su cuenta y también participar en hackatons con sus amigos. Ha desarrollado proyectos propios como 
-un blog de recetas, una mini app que imita un frigorífico, un dashboard para datos comerciales, un comparador de precios de productos
-de supermercado entre otros. Sobre todo le encanta programar en Python y siempre trata de diseñar arquitecturas basadas en tecnologías 
-de la nube de AWS como S3, Lambda, SNS, Eventbridge, AppRunner, Cloudformation, Codepipeline, Aurora, Route53, ...
+A Nikola le gusta investigar por su cuenta y también participar en hackatons con sus amigos. Ha desarrollado proyectos propios como un blog de recetas, una mini app que imita un frigorífico, un dashboard para datos comerciales, un comparador de precios de productosde supermercado entre otros. Sobre todo le encanta programar en Python y siempre trata de diseñar arquitecturas basadas en tecnologías de la nube de AWS como S3, Lambda, SNS, Eventbridge, AppRunner, Cloudformation, Codepipeline, Aurora, Route53, ...
 
 4. ¿Qué tecnologías conoce?
 
-Lenguajes de programación
+- Lenguajes de programación
 Python (preferido)
 JavaScript 
-Herramientas y frameworks para ciencia de datos
+- Herramientas y frameworks para ciencia de datos
 Pandas
-Spark
+Apache Spark
 Scikit-learn
+Matplotlib
+Plotly
 MLflow
 TensorFlow
 SageMaker
+- Orquestación y Big Data
 Prefect
+Apache Airflow
+Apache Kafka
+Apache Flink
 Bases de datos
 PostgreSQL
 DynamoDB
 MongoDB
-Tecnologías en la nube y DevOps
+Redis
+- Nube y contenedores
 AWS (Amazon Web Services)
 Docker
 Serverless Framework
 Terraform
+Pulumi
+Cloudformation
 CI/CD Pipelines
+- Desarrollo web
+Figma
+Swagger
+FastAPI
+VueJS
+PostMan
+
 
 5. ¿Cómo contactar?
-Puedes contactar con él a través de Linkedin en el link https://www.linkedin.com/in/nikola-dyulgerov/ y a través de correo electrónico
-nikolasvdulgerov@gmail.com
+Puedes contactar con él a través de Linkedin en el link https://www.linkedin.com/in/nikola-dyulgerov/ y a través de correo electrónico nikolasvdulgerov@gmail.com
 
 6. ¿En qué tipo de roles está interesado?
-Aunque el perfil de Nikola es muy amplio dado que maneja diferentes tecnologías principalmente esta interesado en perfiles 
-de Data Engineer, Data Science o ML Engineer. Dependiendo del proyecto / propuesta también estaría disponible para un puesto como Software Engineer
-
+Aunque el perfil de Nikola es muy amplio dado que maneja diferentes tecnologías principalmente esta interesado en perfiles de Data Engineer, Data Science o ML Engineer
 """
 
 client = InferenceClient(token=HUGGINGFACE_API_KEY)
@@ -77,15 +89,24 @@ if "messages" not in st.session_state:
 if "selected_pill" not in st.session_state:
     st.session_state.selected_pill = False
 if "system_message" not in st.session_state:
-    st.session_state.system_message = [{"role": "system", "content": f"Eres un asistente que responde únicamente preguntas sobre Nikola.\n{CONTEXT}"}]
+    st.session_state.system_message = [
+        {
+            "role": "system",
+            "content": f"Eres un asistente que responde únicamente preguntas sobre Nikola.\n{CONTEXT}",
+        }
+    ]
 
 for message in st.session_state.messages:
-    with st.chat_message(message["role"], avatar="🤖" if message["role"] == "assistant" else "🤓"):
+    with st.chat_message(
+        message["role"], avatar="🤖" if message["role"] == "assistant" else "🤓"
+    ):
         st.markdown(message["content"])
+
 
 def preprocess_stream(stream):
     for chunk in stream:
         yield chunk.choices[0].delta.content
+
 
 def manage_user_input(input_content):
     st.session_state.selected_pill = True
@@ -101,18 +122,16 @@ def manage_user_input(input_content):
             temperature=0.5,
             max_tokens=1024,
             top_p=0.7,
-            stream=True
+            stream=True,
         )
         response = preprocess_stream(stream)
         content = st.write_stream(response)
-    st.session_state.messages.append({"role": "assistant", "content": content })
+    st.session_state.messages.append({"role": "assistant", "content": content})
     st.rerun()
 
+
 if not st.session_state.selected_pill:
-    if selected_pill := st.pills(
-        label="Preguntas ejemplo:",
-        options=EXAMPLE_PROMPTS
-    ):
+    if selected_pill := st.pills(label="Preguntas ejemplo:", options=EXAMPLE_PROMPTS):
         manage_user_input(selected_pill)
 
 if prompt := st.chat_input("Pregúntame lo que sea sobre Nikola"):

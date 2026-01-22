@@ -95,7 +95,7 @@ st.markdown(
     ":jigsaw: Siempre estoy explorando nuevas ideas y tecnologías para mejorar la manera en la que trabajo"
 )
 st.markdown(
-    ":running: Fuera del trabajo, la lectura, el dibujo y el running forman parte de mi equilibrio diario"
+    ":books: Fuera del trabajo, la lectura, el dibujo y el running forman parte de mi rutina diaria"
 )
 
 st.header("Tecnologías")
